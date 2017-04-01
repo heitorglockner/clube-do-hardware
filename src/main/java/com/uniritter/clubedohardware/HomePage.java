@@ -6,7 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class HomePage extends PageObject {
+public class HomePage extends BasePage {
   
 	@FindBy(id="elUserSignIn")
 	private WebElement elUserSignIn;
@@ -47,7 +47,7 @@ public class HomePage extends PageObject {
 
 		openLoginBox();
 		enterUsername("heitorglockner@gmail.com");
-		enterPassword("09021989");
+		enterPassword("abcd1234");
 
 		elUserSignSubmit.click();
 		return new ReceiptPage(driver);

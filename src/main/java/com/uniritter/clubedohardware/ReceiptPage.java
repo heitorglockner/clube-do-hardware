@@ -7,13 +7,19 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class ReceiptPage extends PageObject {
+public class ReceiptPage extends BasePage {
 	@FindBy(id="elUserLink")
 	private WebElement elUserNameLogged;
 
 	@FindBy(id="elNavTheme")
 	private WebElement elNavTheme;
-
+	
+	@FindBy(xpath="//*[@id='elNavTheme_menu']/li[1]/form/button")
+	private WebElement elNavThemeDefault;
+	
+	@FindBy(xpath="//*[@id='elNavTheme_menu']/li[4]/form/button")
+	private WebElement elNavThemeNight;
+	
 	@FindBy(tagName="body")
 	WebElement body;
 	
@@ -34,7 +40,13 @@ public class ReceiptPage extends PageObject {
 		return elUserNameLogged.isDisplayed();
 	}
 	
-	public void changeTheme() {
+	public void changeThemeToDefault() {
 		elNavTheme.click();
+		elNavThemeDefault.click();
+	}
+	
+	public void changeThemeToNight() {
+		elNavTheme.click();
+		elNavThemeNight.click();
 	}
 }
