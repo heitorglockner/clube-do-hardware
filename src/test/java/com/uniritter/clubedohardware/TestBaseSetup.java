@@ -3,7 +3,6 @@ package com.uniritter.clubedohardware;
 import java.util.concurrent.TimeUnit;
 
 import org.junit.After;
-import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
@@ -11,7 +10,9 @@ import org.openqa.selenium.chrome.ChromeOptions;
 public class TestBaseSetup {
 	private WebDriver driver;
 
-	public WebDriver getDriver() {
+	public WebDriver getDriver(String url) {
+		initializeTestBaseSetup(url);
+
 		return driver;
 	}
 
@@ -20,16 +21,17 @@ public class TestBaseSetup {
 
 		String driverpath = null;
 		if (os.contains("mac")) {
-			driverpath = "chromedriver";
+			driverpath = "chromedriver_mac";
 		} else if (os.contains("win")) {
 			driverpath = "chromedriver.exe";
+		} else if (os.contains("nix") || os.contains("nux") || os.contains("aix")) {
+			driverpath = "chromedriver_linux";
 		}
 	
 		return driverpath;
 	}
-	
-	@Before
-	public void initializeTestBaseSetup() {
+
+	public void initializeTestBaseSetup(String url) {
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("--disable-notifications");
 		options.addArguments("--start-maximized");
@@ -37,7 +39,7 @@ public class TestBaseSetup {
 		System.setProperty("webdriver.chrome.driver", detectOS());
 
 		driver = new ChromeDriver(options);
-		driver.get("http://www.clubedohardware.com.br/");
+		driver.get("http://www.clubedohardware.com.br/" + url);
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
 	

@@ -11,7 +11,7 @@ public class HomePageTest extends TestBaseSetup {
 	
 	@Before
 	public void before() {
-		driver = getDriver();
+		driver = getDriver("");
 	}
 
 	@Test
@@ -21,7 +21,5 @@ public class HomePageTest extends TestBaseSetup {
 
 		ReceiptPage receiptPage = new ReceiptPage(driver);
 		assertEquals("Heitor Glockner", receiptPage.confirmationUsername());
-		
-		driver.quit();
 	}
 }

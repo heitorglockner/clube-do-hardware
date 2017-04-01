@@ -12,29 +12,35 @@ public class ReceiptPageTest extends TestBaseSetup {
 
 	@Before
 	public void before() {
-		driver = getDriver();
+		driver = getDriver("");
+
+		HomePage homePage = new HomePage(driver);
+		homePage.submit();
 	}
 
 	@Test()
-	public void changeThemeToNight() {
-		HomePage homePage = new HomePage(driver);
-		homePage.submit();
-
+	public void changeThemeToNight() throws InterruptedException {
 		ReceiptPage receiptPage = new ReceiptPage(driver);
 		assertTrue(receiptPage.isInitialized());
 		receiptPage.changeThemeToNight();
 
-		String bodyBgColor = receiptPage.body.getCssValue("backgroud-color").toString();
-		assertEquals("#1b1c1e", bodyBgColor);
+		if(receiptPage.body.isDisplayed()) {
+			Thread.sleep(5000);
+			String bodyColor = receiptPage.body.getCssValue("color").toString();
+			assertEquals("rgba(200, 200, 200, 0.870588)", bodyColor);
+		}
 	}
 
 	@Test()
-	public void changeThemeToDefalt() {
+	public void changeThemeToDefault() throws InterruptedException {
 		ReceiptPage receiptPage = new ReceiptPage(driver);
 		assertTrue(receiptPage.isInitialized());
 		receiptPage.changeThemeToDefault();
 
-		String bodyBgColor = receiptPage.body.getCssValue("backgroud-color").toString();
-		assertEquals("#ebeef2", bodyBgColor);
+		if(receiptPage.body.isDisplayed()) {
+			Thread.sleep(5000);
+			String bodyColor = receiptPage.body.getCssValue("color").toString();
+			assertEquals("rgba(0, 0, 0, 0.870588)", bodyColor);
+		}
 	}
 }

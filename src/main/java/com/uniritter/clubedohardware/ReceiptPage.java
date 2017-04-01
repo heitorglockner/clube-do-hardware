@@ -20,7 +20,7 @@ public class ReceiptPage extends BasePage {
 	@FindBy(xpath="//*[@id='elNavTheme_menu']/li[4]/form/button")
 	private WebElement elNavThemeNight;
 	
-	@FindBy(tagName="body")
+	@FindBy(css="body")
 	WebElement body;
 	
 	public ReceiptPage(WebDriver driver) {
