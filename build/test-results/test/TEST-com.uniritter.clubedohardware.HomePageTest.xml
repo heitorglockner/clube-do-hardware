@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.uniritter.clubedohardware.HomePageTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2017-04-01T23:22:34" hostname="MacBook-Pro-de-Heitor.local" time="26.223">
+  <properties/>
+  <testcase name="signUp" classname="com.uniritter.clubedohardware.HomePageTest" time="26.223"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[Starting ChromeDriver 2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f) on port 1470
+Only local connections are allowed.
+]]></system-err>
+</testsuite>
