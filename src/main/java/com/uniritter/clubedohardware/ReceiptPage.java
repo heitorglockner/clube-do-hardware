@@ -38,8 +38,5 @@ public class ReceiptPage extends PageObject {
 	
 	public void changeTheme() {
 		elNavTheme.click();
-		
-		String bodyBgColor = body.getCssValue("backgroud-color").toString();
-		assertEquals("#1b1c1e", bodyBgColor);
 	}
 }

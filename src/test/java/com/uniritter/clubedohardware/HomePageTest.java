@@ -52,6 +52,7 @@ public class HomePageTest {
 		assertTrue(receiptPage.isInitialized());
 		receiptPage.changeTheme();
 
-		assertEquals("Heitor Glockner", receiptPage.confirmationUsername());
+		String bodyBgColor = body.getCssValue("backgroud-color").toString();
+		assertEquals("#1b1c1e", bodyBgColor);
 	}
 }
