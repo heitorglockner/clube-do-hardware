@@ -1,5 +1,7 @@
 package com.uniritter.clubedohardware;
 
+import static org.junit.Assert.assertTrue;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -39,8 +41,14 @@ public class HomePage extends PageObject {
 		this.elUserPass.clear();
 		this.elUserPass.sendKeys(password);
 	}
+	
+	public ReceiptPage submit() {
+		assertTrue(isInitialized());
 
-	public ReceiptPage submit(){
+		openLoginBox();
+		enterUsername("heitorglockner@gmail.com");
+		enterPassword("09021989");
+
 		elUserSignSubmit.click();
 		return new ReceiptPage(driver);
 	}

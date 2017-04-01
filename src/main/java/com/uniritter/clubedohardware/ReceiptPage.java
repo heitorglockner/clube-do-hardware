@@ -1,7 +1,5 @@
 package com.uniritter.clubedohardware;
 
-import static org.junit.Assert.assertEquals;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -16,8 +14,8 @@ public class ReceiptPage extends PageObject {
 	@FindBy(id="elNavTheme")
 	private WebElement elNavTheme;
 
-	@FindBy(xpath="/html/body")
-	private WebElement body;
+	@FindBy(tagName="body")
+	WebElement body;
 	
 	public ReceiptPage(WebDriver driver) {
 		super(driver);

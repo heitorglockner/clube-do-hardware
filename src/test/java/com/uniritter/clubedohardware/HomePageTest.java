@@ -1,22 +1,17 @@
 package com.uniritter.clubedohardware;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
 import java.util.concurrent.TimeUnit;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import com.uniritter.clubedohardware.HomePage;
 
 public class HomePageTest {
-	WebElement elUserSignIn, elUserName, elUserPass, elUserSignSubmit, elUserNameLogged;
-
 	private WebDriver driver;
 
 	@Before
@@ -34,25 +29,9 @@ public class HomePageTest {
 	@Test
 	public void signUp() {
 		HomePage homePage = new HomePage(driver);
-		assertTrue(homePage.isInitialized());
-
-		homePage.openLoginBox();
-		homePage.enterUsername("heitorglockner@gmail.com");
-		homePage.enterPassword("09021989");
-
-		ReceiptPage receiptPage = homePage.submit();
-
-		assertEquals("Heitor Glockner", receiptPage.confirmationUsername());
-	}
-
-	@Test
-	public void changeTheme() {
+		homePage.submit();
 
 		ReceiptPage receiptPage = new ReceiptPage(driver);
-		assertTrue(receiptPage.isInitialized());
-		receiptPage.changeTheme();
-
-		String bodyBgColor = body.getCssValue("backgroud-color").toString();
-		assertEquals("#1b1c1e", bodyBgColor);
+		assertEquals("Heitor Glockner", receiptPage.confirmationUsername());
 	}
 }

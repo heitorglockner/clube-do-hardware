@@ -8,15 +8,10 @@ import java.util.concurrent.TimeUnit;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
-import com.uniritter.clubedohardware.HomePage;
-
-public class ReceiptPageTest {
-	WebElement elUserSignIn, elUserName, elUserPass, elUserSignSubmit, elUserNameLogged;
-
+public class ReceiptPageTest extends HomePageTest {
 	private WebDriver driver;
 
 	@Before
@@ -31,13 +26,17 @@ public class ReceiptPageTest {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
 
-	@Test
+	@Test()
 	public void changeTheme() {
+		HomePage homePage = new HomePage(driver);
+		homePage.submit();
 
 		ReceiptPage receiptPage = new ReceiptPage(driver);
 		assertTrue(receiptPage.isInitialized());
 		receiptPage.changeTheme();
 
-		assertEquals("Heitor Glockner", receiptPage.confirmationUsername());
+		assertTrue(receiptPage.isInitialized());
+		String bodyBgColor = receiptPage.body.getCssValue("backgroud-color").toString();
+		assertEquals("#1b1c1e", bodyBgColor);
 	}
 }
