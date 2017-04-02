@@ -1,10 +1,9 @@
-package com.uniritter.clubedohardware;
+package com.uniritter.qualidadedesoftware;
 
 import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
-import com.uniritter.clubedohardware.HomePage;
 
 public class HomePageTest extends TestBaseSetup {
 	private WebDriver driver;

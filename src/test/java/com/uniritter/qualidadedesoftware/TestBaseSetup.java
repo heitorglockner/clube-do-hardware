@@ -1,4 +1,4 @@
-package com.uniritter.clubedohardware;
+package com.uniritter.qualidadedesoftware;
 
 import java.util.concurrent.TimeUnit;
 
@@ -43,7 +43,7 @@ public class TestBaseSetup {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
-	
+
 	@After
 	public void tearDown() {
 		driver.quit();

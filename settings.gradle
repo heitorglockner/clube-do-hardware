@@ -15,4 +15,4 @@ include 'api'
 include 'services:webservice'
 */
 
-rootProject.name = 'clube-do-hardware-gradle'
+rootProject.name = 'clube-do-hardware'

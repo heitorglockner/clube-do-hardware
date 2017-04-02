@@ -1,4 +1,4 @@
-package com.uniritter.clubedohardware;
+package com.uniritter.qualidadedesoftware;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
