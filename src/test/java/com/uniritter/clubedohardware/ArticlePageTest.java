@@ -3,6 +3,8 @@ package com.uniritter.clubedohardware;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
+import java.util.concurrent.TimeUnit;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
@@ -20,7 +22,9 @@ public class ArticlePageTest extends TestBaseSetup {
 	@Test
 	public void testePageTitle() {
 		ArticlePage articlePage = new ArticlePage(driver);
-		assertTrue(articlePage.isInitialized());
+		
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		// assertTrue(articlePage.isInitialized());
 
 		String expectedTitle = "Samsung apresenta os novos smartphones Galaxy S8 e S8+";
 		assertEquals(expectedTitle, articlePage.getPageTitle());

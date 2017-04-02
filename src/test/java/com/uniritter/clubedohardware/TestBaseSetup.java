@@ -40,6 +40,7 @@ public class TestBaseSetup {
 
 		driver = new ChromeDriver(options);
 		driver.get("http://www.clubedohardware.com.br/" + url);
+		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
 	

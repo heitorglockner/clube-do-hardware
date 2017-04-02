@@ -6,16 +6,12 @@ import org.openqa.selenium.support.FindBy;
 
 public class ArticlePage extends BasePage {
   
-	@FindBy(className="jmHugeTitle")
+	@FindBy(xpath="//*['@id=elCmsPageWrap']/div[1]/div[1]/div[2]/h1/span")
 	private WebElement elTitlePage;
 
 	public ArticlePage(WebDriver driver) {
 		super(driver);
 	}
-
-	//	public boolean isInitialized() {
-	//		return elUserSignIn.isDisplayed();
-	//	}
 
 	public boolean isInitialized() {
 		return elTitlePage.isDisplayed();
