@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.uniritter.clubedohardware.ReceiptPageTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2017-04-01T23:23:00" hostname="MacBook-Pro-de-Heitor.local" time="102.866">
+<testsuite name="com.uniritter.clubedohardware.ReceiptPageTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2017-04-01T23:56:37" hostname="MacBook-Pro-de-Heitor.local" time="89.76">
   <properties/>
-  <testcase name="changeThemeToDefault" classname="com.uniritter.clubedohardware.ReceiptPageTest" time="40.799"/>
-  <testcase name="changeThemeToNight" classname="com.uniritter.clubedohardware.ReceiptPageTest" time="62.067"/>
+  <testcase name="changeThemeToDefault" classname="com.uniritter.clubedohardware.ReceiptPageTest" time="42.964"/>
+  <testcase name="changeThemeToNight" classname="com.uniritter.clubedohardware.ReceiptPageTest" time="46.796"/>
   <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[Starting ChromeDriver 2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f) on port 21684
+  <system-err><![CDATA[Starting ChromeDriver 2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f) on port 3380
 Only local connections are allowed.
-Starting ChromeDriver 2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f) on port 42487
+Starting ChromeDriver 2.28.455517 (2c6d2707d8ea850c862f04ac066724273981e88f) on port 44891
 Only local connections are allowed.
 ]]></system-err>
 </testsuite>
