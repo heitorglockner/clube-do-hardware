@@ -7,8 +7,8 @@ import org.openqa.selenium.support.FindBy;
 public class ArticlePage extends BasePage {
   
 	@FindBy(id="elCmsPageWrap")
-	WebElement elCmsPageWrap;	
-	
+	WebElement elCmsPageWrap;
+
 	@FindBy(xpath="//*['@id=elCmsPageWrap']/div[1]/div[1]/div[2]/h1/span")
 	WebElement elTitlePage;
 
@@ -16,10 +16,13 @@ public class ArticlePage extends BasePage {
 	WebElement elFollowButton;
 
 	@FindBy(id="elRadio_follow_type_none_")
-	WebElement elRadioFollowTypeNone;	
+	WebElement elRadioFollowTypeNone;
 
 	@FindBy(xpath="/html/body/div[6]/div/form/div[2]/button")
 	WebElement elFollowFormSubmitButton;
+
+	@FindBy(xpath="//*[@id='elCmsPageWrap']/div[1]/article/div[3]/div/div/a")
+	WebElement elLikeButton;
 	
 	public ArticlePage(WebDriver driver) {
 		super(driver);
@@ -28,7 +31,7 @@ public class ArticlePage extends BasePage {
 	public boolean isInitialized() {
 		return elCmsPageWrap.isDisplayed();
 	}
-	
+
 	public String getPageTitle() {
 		return elTitlePage.getText();
 	}
@@ -37,5 +40,9 @@ public class ArticlePage extends BasePage {
 		elFollowButton.click();
 		elRadioFollowTypeNone.click();
 		elFollowFormSubmitButton.click();
+	}
+
+	public void toggleLikeArticle() {
+		elLikeButton.click();
 	}
 }

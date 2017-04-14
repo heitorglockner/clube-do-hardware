@@ -35,4 +35,21 @@ public class ArticlePageTest extends TestBaseSetup {
 		articlePage.followArticle();
 		assertTrue(articlePage.elFollowButton.getText().contains("Seguindo"));
 	}
+
+	@Test
+	public void toggleLikeArticle() {	
+		HomePage homePage = new HomePage(driver);
+		homePage.submit();
+		
+		ArticlePage articlePage = new ArticlePage(driver);
+		assertTrue(articlePage.isInitialized());
+
+		if (articlePage.elLikeButton.getText().contains("Curtir")) {
+			articlePage.toggleLikeArticle();
+			assertTrue(articlePage.elLikeButton.getText().contains("Descurtir"));
+		} else {
+			articlePage.toggleLikeArticle();
+			assertTrue(articlePage.elLikeButton.getText().contains("Curtir"));			
+		}
+	}
 }
