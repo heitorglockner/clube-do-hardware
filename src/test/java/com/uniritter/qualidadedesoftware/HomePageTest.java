@@ -21,4 +21,13 @@ public class HomePageTest extends TestBaseSetup {
 		ReceiptPage receiptPage = new ReceiptPage(driver);
 		assertEquals("Heitor Glockner", receiptPage.confirmationUsername());
 	}
+
+	@Test
+	public void signUpWithIncorretData() {
+		HomePage homePage = new HomePage(driver);
+		homePage.submitWithIncorrectData();
+
+		LoginPage loginPage = new LoginPage(driver);
+		assertEquals("O Nome de usuário ou endereço de e-mail que você informou não pertence a nenhuma conta. Certifique-se que tenha digitado corretamente.", loginPage.getErrorMessage());
+	}
 }

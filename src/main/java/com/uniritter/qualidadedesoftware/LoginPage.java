@@ -6,32 +6,31 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class HomePage extends BasePage {
-  
-	@FindBy(id="elUserSignIn")
+public class LoginPage extends BasePage {
+
+	@FindBy(xpath="//*[@id='ipsLayout_mainArea']/div[2]/div/div[1]/div/form")
 	private WebElement elUserSignIn;
-	
-	@FindBy(id="auth")
+
+	@FindBy(xpath="//*[@id='ipsLayout_mainArea']/div[2]/div/div[1]/div/p")
+	WebElement elErrorMessage;
+
+	@FindBy(id="elInput_auth")
 	private WebElement elUserName;
 
-	@FindBy(id="password")
+	@FindBy(id="elInput_password")
 	private WebElement elUserPass;
 
-	@FindBy(id="elSignIn_submit")
-	private WebElement elUserSignSubmit;
+	@FindBy(xpath="//*[@id='ipsLayout_mainArea']/div[2]/div/div[1]/div/form/ul/li[5]/div/button")
+	WebElement elUserSignSubmit;
 
-	public HomePage(WebDriver driver) {
+	public LoginPage(WebDriver driver) {
 		super(driver);
 	}
 
 	public boolean isInitialized() {
 		return elUserSignIn.isDisplayed();
 	}
-	
-	public void openLoginBox(){
-		this.elUserSignIn.click();
-	}
-	
+
 	public void enterUsername(String userName){
 		this.elUserName.clear();
 		this.elUserName.sendKeys(userName);
@@ -42,25 +41,17 @@ public class HomePage extends BasePage {
 		this.elUserPass.sendKeys(password);
 	}
 	
-	public ReceiptPage submit() {
+	public String getErrorMessage(){
+		return elErrorMessage.getText();
+	}
+
+	public LoginPage submit() {
 		assertTrue(isInitialized());
 
-		openLoginBox();
 		enterUsername("heitorglockner@gmail.com");
 		enterPassword("abcd1234");
 
 		elUserSignSubmit.click();
-		return new ReceiptPage(driver);
-	}
-
-	public ReceiptPage submitWithIncorrectData() {
-		assertTrue(isInitialized());
-
-		openLoginBox();
-		enterUsername("heitor123");
-		enterPassword("abcd1234");
-
-		elUserSignSubmit.click();
-		return new ReceiptPage(driver);
+		return new LoginPage(driver);
 	}
 }
